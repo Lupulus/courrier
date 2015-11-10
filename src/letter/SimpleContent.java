@@ -2,9 +2,18 @@ package letter;
 
 public class SimpleContent implements Content{
 
+	private String text;
+	
+	public SimpleContent(String text){
+		this.text = text;
+	}
+	
 	public String getDescription() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Simple Content";
+	}
+	
+	public String getText(){
+		return this.text;
 	}
 
 }

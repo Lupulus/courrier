@@ -1,5 +1,6 @@
 package letter;
 
-public class SimpleLetter {
+public class SimpleLetter extends Letter<SimpleContent> {
+	
 
 }
