@@ -4,7 +4,7 @@ public class NoteContent implements Content {
 
 	private int amount;
 	
-	public NoteContent(int amount) {
+	public NoteContent(int amount){
 		this.amount = amount;
 	}
 	
