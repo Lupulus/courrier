@@ -1,5 +1,6 @@
 package town;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import letter.Content;
@@ -12,10 +13,24 @@ public class City {
 	
 	public City(String name){
 		this.name = name;
+		this.inhabitants = new ArrayList<Inhabitant>();
+		this.postBox = new ArrayList<Letter<Content>>();
 	}
 	
 	public void sendLetter(Letter<Content> letter){
 		postBox.add(letter);
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public List<Inhabitant> getInhabitants() {
+		return inhabitants;
+	}
+	
+	public List<Letter<Content>> getPostBox() {
+		return postBox;
 	}
 	
 	public void distributeLetter(){
