@@ -20,8 +20,8 @@ public class City {
 	
 	public void distributeLetter(){
 		for(Letter<Content> letter : postBox){
-			Inhabitant receiveur = letter.getReceiver();
-			receiveur.addReceivedLetter(letter);
+			Inhabitant receiver = letter.getReceiver();
+			receiver.addReceivedLetter(letter);
 		}
 	}
 }
