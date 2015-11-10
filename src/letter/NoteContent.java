@@ -1,10 +1,19 @@
 package letter;
 
-public class NoteContent implements Content{
+public class NoteContent implements Content {
 
+	private int amount;
+	
+	public NoteContent(int amount) {
+		this.amount = amount;
+	}
+	
 	public String getDescription() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Note Content";
+	}
+	
+	public int getAmount() {
+		return amount;
 	}
 
 }

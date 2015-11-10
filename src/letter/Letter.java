@@ -1,5 +1,6 @@
 package letter;
 
-public class Letter {
-
+public abstract class Letter<C extends Content> {
+	
+	
 }
