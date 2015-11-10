@@ -1,25 +1,25 @@
 package town;
 
 public class BankAccount {
-	private int account;
+	private double value;
 	
 	public BankAccount(int value){
-		this.account = value;
+		this.value = value;
 	}
 	
-	public int getAccount(){
-		return this.account;
+	public double getAccount(){
+		return this.value;
 	}
 	
-	public void setAccount(int value){
-		this.account = value;
+	public void setAccount(double value){
+		this.value = value;
 	}
 	
-	public void removeCostInAccount(int cost){
-		this.account = this.account - cost;
+	public void removeCostInAccount(double cost){
+		this.value -= cost;
 	}
 	
-	public void addPromissoryInAccount(int promissory){
-		
+	public void addCostInAccount(double cost){
+		this.value += cost;
 	}
 }

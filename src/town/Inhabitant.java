@@ -2,12 +2,13 @@ package town;
 
 import java.util.List;
 
+import letter.Content;
 import letter.Letter;
 
 public class Inhabitant {
 	private String name;
 	private BankAccount bankAccount;
-	private List<Letter> receivedLetter;
+	private List<Letter<Content>> receivedLetter;
 	
 	public Inhabitant(String name){
 		this.name = name;
@@ -28,7 +29,7 @@ public class Inhabitant {
 		return this.bankAccount;
 	}
 	
-	public void addReceivedLetter(Letter letter){
+	public void addReceivedLetter(Letter<Content> letter){
 		receivedLetter.add(letter);
 	}
 	
