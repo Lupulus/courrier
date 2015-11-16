@@ -26,6 +26,10 @@ public abstract class Letter<C extends Content> {
 		return price;
 	}
 	
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
 	public Inhabitant getSender() {
 		return sender;
 	}
