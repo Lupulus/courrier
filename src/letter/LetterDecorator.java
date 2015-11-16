@@ -13,17 +13,9 @@ public abstract class LetterDecorator<C extends Content> extends Letter<C> {
 	public void action() {
 		letter.action();
 	}
-	
-	public void changeCost(int cost){
-		letter.setPrice(cost);
-	}
 
-	public Letter<C> getLetter() {
-		return letter;
-	}
-
-	public void setLetter(Letter<C> letter) {
-		this.letter = letter;
+	public void changeCost(double cost){
+		super.setPrice(cost);
 	}
 	
 }
