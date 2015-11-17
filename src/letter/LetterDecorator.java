@@ -1,21 +1,16 @@
 package letter;
 
-public abstract class LetterDecorator<C extends Content> extends Letter<C> {
+public abstract class LetterDecorator extends Letter<Content> {
 
-	private Letter<C> letter;
+	protected Letter<?> letter;
 	
-	public LetterDecorator(Letter<C> letter) {
-		super(letter.getSender(), letter.getReceiver(), letter.getPrice());
+	public LetterDecorator(Letter<?> letter) {
+		super(letter.getSender(), letter.getReceiver(), letter.getCost());
 		this.letter = letter;
 	}
 
-	@Override
-	public void action() {
-		letter.action();
+	public Letter<?> getLetter() {
+		return letter;
 	}
 
-	public void changeCost(double cost){
-		super.setPrice(cost);
-	}
-	
 }

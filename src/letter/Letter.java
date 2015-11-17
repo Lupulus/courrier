@@ -6,28 +6,27 @@ public abstract class Letter<C extends Content> {
 	
 	private Inhabitant sender;
 	private Inhabitant receiver;
-	private double price;
+	private double cost;
 	protected C content;
+	private Boolean opened;
 
-	public Letter(Inhabitant sender, Inhabitant receiver, double price) {
-		super();
+	public Letter(Inhabitant sender, Inhabitant receiver, double cost) {
 		this.sender = sender;
 		this.receiver = receiver;
-		this.price = price;
+		this.cost = cost;
+		this.setOpened(false);
 	}
 	
-	public abstract void action();
+	public void action(){
+		this.setOpened(true);
+	}
 	
 	public C getContent() {
 		return content;
 	}
 	
-	public double getPrice() {
-		return price;
-	}
-	
-	public void setPrice(double price) {
-		this.price = price;
+	public double getCost() {
+		return cost;
 	}
 	
 	public Inhabitant getSender() {
@@ -36,6 +35,18 @@ public abstract class Letter<C extends Content> {
 	
 	public Inhabitant getReceiver() {
 		return receiver;
+	}
+	
+	public boolean isUrgent() {
+		return false;
+	}
+
+	public Boolean getOpened() {
+		return opened;
+	}
+
+	public void setOpened(Boolean opened) {
+		this.opened = opened;
 	}
 	
 	

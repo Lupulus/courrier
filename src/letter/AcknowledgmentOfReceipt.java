@@ -2,26 +2,14 @@ package letter;
 
 import town.Inhabitant;
 
-public class AcknowledgmentOfReceipt {
-
-	private Inhabitant sender;
-	private Inhabitant receiver;
+public class AcknowledgmentOfReceipt extends SimpleLetter {
 	
-	public AcknowledgmentOfReceipt(Inhabitant sender, Inhabitant receiver){
-		this.receiver = receiver;
-		this.sender = sender;;
+	public AcknowledgmentOfReceipt(Inhabitant sender, Inhabitant receiver, String text){
+		super(sender, receiver, text);
 	}
 	
-	public void action(){
-		sender.addReceipt(this);
-	}
-
-	public Inhabitant getSender() {
-		return sender;
-	}
-
-	public Inhabitant getReceiver() {
-		return receiver;
-	}
-
+	@Override
+	public double getCost() {
+		return 0;
+	}		
 }

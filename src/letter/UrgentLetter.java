@@ -1,14 +1,32 @@
 package letter;
 
-public class UrgentLetter<C extends Content> extends LetterDecorator<C> {
+import exception.AlreadyUrgentException;
+
+public class UrgentLetter extends LetterDecorator {
 	
-	public UrgentLetter(Letter<C> letter) {
+	public UrgentLetter(Letter<?> letter) throws AlreadyUrgentException {
 		super(letter);
-		super.changeCost(2*letter.getPrice());
+		if (letter.isUrgent()) {
+			throw new AlreadyUrgentException();
+		}
 	}
 	
 	@Override
 	public void action() {
-		super.action();
+		super.letter.action();
+	}
+	
+	@Override
+	public double getCost() {
+		return super.letter.getCost() * 2;
+	}
+	
+	@Override
+	public boolean isUrgent() {
+		return true;
+	}
+
+	public String toString() {
+		return this.letter.toString() + " urgent letter";
 	}
 }

@@ -1,19 +1,27 @@
 package letter;
 
-public class RegisteredLetter<C extends Content> extends LetterDecorator<C> {
+public class RegisteredLetter extends LetterDecorator {
 
-	private int cost = 15;
-	private AcknowledgmentOfReceipt receipt;
+	private static final double COST = 15;
 	
-	public RegisteredLetter(Letter<C> letter) {
+	public RegisteredLetter(Letter<? extends Content> letter) {
 		super(letter);
-		super.changeCost(letter.getPrice() + cost);
-		this.receipt = new AcknowledgmentOfReceipt(letter.getSender(), letter.getReceiver());
 	}
 
 	@Override
+	public double getCost() {
+		return super.letter.getCost() + COST;
+	}
+	
+	@Override
 	public void action() {
 		super.action();
-		receipt.action();
+		String text = super.letter.getReceiver() + " has received your letter";
+		Letter<? extends Content> letter = new AcknowledgmentOfReceipt(super.getSender(), super.getReceiver(), text);
+		letter.getSender().getCity().sendLetter(letter);
+	}
+	
+	public String toString() {
+		return this.letter.toString() + " registered letter";
 	}
 }

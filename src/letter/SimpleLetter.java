@@ -4,15 +4,24 @@ import town.Inhabitant;
 
 public class SimpleLetter extends Letter<SimpleContent> {
 
+	public final static double COST = 1;
+	
 	public SimpleLetter(Inhabitant sender, Inhabitant receiver, String text) {
-		super(sender, receiver, 1);
+		super(sender, receiver, COST);
 		super.content = new SimpleContent(text); 
 	}
 
 	@Override
 	public void action() {
-		System.out.println(content.getText());
+		super.action();
+	}
+
+	@Override
+	public double getCost() {
+		return COST;
 	}
 	
-
+	public String toString() {
+		return "simple letter";
+	}
 }

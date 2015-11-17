@@ -1,5 +1,4 @@
 package letter;
-
 import town.Inhabitant;
 
 public class PromissoryNote extends Letter<NoteContent> {
@@ -12,7 +11,29 @@ public class PromissoryNote extends Letter<NoteContent> {
 
 	@Override
 	public void action() {
-		super.getReceiver().getBankAccount().addCostInAccount(content.getAmount());
+		super.action();
+		try{
+			if(content.getAmount() <= this.getSender().getBankAccount().getAccount()){
+				super.getSender().getBankAccount().removeCostInAccount(content.getAmount());
+				super.getReceiver().getBankAccount().addCostInAccount(content.getAmount());
+				SimpleLetter letter = new SimpleLetter(super.getReceiver(), super.getSender(), "Thank you for the money");
+				letter.getSender().getCity().sendLetter(letter);
+			}
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+			
 	}
+	
+	@Override
+	public double getCost() {
+		return  1 + 0.01 * content.getAmount();
+	}
+	
+	public String toString() {
+		return "promissory note (" + content.getAmount() + ")";
+	}
+	
+	
 
 }

@@ -5,7 +5,7 @@ public class SimpleContent implements Content{
 	private String text;
 	
 	public String getDescription() {
-		return "Simple Content";
+		return "Text content";
 	}
 	
 	public SimpleContent(String text){
@@ -16,4 +16,7 @@ public class SimpleContent implements Content{
 		return this.text;
 	}
 
+	public void setText(String text) {
+		this.text = text;
+	}
 }

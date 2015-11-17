@@ -3,21 +3,19 @@ package town;
 import java.util.ArrayList;
 import java.util.List;
 
-import letter.AcknowledgmentOfReceipt;
 import letter.Content;
 import letter.Letter;
 
 public class Inhabitant {
 	private String name;
+	private City city;
 	private BankAccount bankAccount;
-	private List<Letter<Content>> receivedLetter;
-	private List<AcknowledgmentOfReceipt> receipts;
+	private List<Letter<? extends Content>> receivedLetter;
 	
 	public Inhabitant(String name){
 		this.name = name;
 		bankAccount = new BankAccount((int) (Math.random()*(1000-100)));
 		receivedLetter = new ArrayList<>();
-		
 	}
 	
 	public String getName(){
@@ -32,13 +30,15 @@ public class Inhabitant {
 		return this.bankAccount;
 	}
 	
-	public void addReceivedLetter(Letter<Content> letter){
+	public void addReceivedLetter(Letter<? extends Content> letter){
 		receivedLetter.add(letter);
 	}
-	
-	public void addReceipt(AcknowledgmentOfReceipt receipt){
-		System.out.println(receipt.getReceiver() + " has received " + receipt.getSender() + "'s registered letter.\n");
-		receipts.add(receipt);
+
+	public City getCity() {
+		return city;
 	}
-	
+
+	public void setCity(City city) {
+		this.city = city;
+	}
 }

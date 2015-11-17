@@ -9,11 +9,15 @@ public class NoteContent implements Content {
 	}
 	
 	public String getDescription() {
-		return "Note Content";
+		return "Money content";
 	}
 	
 	public int getAmount() {
 		return amount;
+	}
+	
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
 
 }
