@@ -34,6 +34,9 @@ public class Inhabitant {
 		receivedLetter.add(letter);
 	}
 
+	public List<Letter<? extends Content>> getReceivedLetter(){
+		return receivedLetter;
+	}
 	public City getCity() {
 		return city;
 	}

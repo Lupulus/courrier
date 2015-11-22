@@ -4,12 +4,13 @@ public class SimpleContent implements Content{
 
 	private String text;
 	
-	public String getDescription() {
-		return "Text content";
-	}
 	
 	public SimpleContent(String text){
 		this.text = text;
+	}
+	
+	public String getDescription() {
+		return "Text content";
 	}
 	
 	public String getText(){

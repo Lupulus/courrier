@@ -29,6 +29,10 @@ public class City {
 		return postBox.add(letter);
 	}
 	
+	public void setName(String name){
+		this.name = name;
+	}
+	
 	public String getName() {
 		return name;
 	}
