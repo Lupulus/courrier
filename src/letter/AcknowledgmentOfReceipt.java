@@ -8,6 +8,7 @@ public class AcknowledgmentOfReceipt extends SimpleLetter {
 		super(sender, receiver, text);
 	}
 	
+	//Returns the letter's cost
 	@Override
 	public double getCost() {
 		return 0;

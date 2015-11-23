@@ -21,6 +21,7 @@ public class Courrier<C extends Content> {
 	
 	}
 	
+	//Returns a new City with the name and the number of inhabitants
 	public static City initCity(String name, int inhabitants){
 		City city = new City(name);
 		System.out.println("Creating " + city.getName() + " city");
@@ -34,10 +35,10 @@ public class Courrier<C extends Content> {
 	}
 
 	public static void mailing(int days){
-		for(int i = 0; i < days; i++){
+		for(int i = 1; i < days +1; i++){
+			System.out.println("********************Day " + i + "********************");
 			city.distributeLetter();
 			int r = (int) (Math.random()*city.getSize());
-			System.out.println(r);
 			for(int j=0; j < r; j++){
 				try{
 					city.sendLetter(createRandomLetter());
@@ -48,6 +49,7 @@ public class Courrier<C extends Content> {
 		}
 	}
 	
+	//Returns a random letter with random sender and receiver
 	public static Letter<? extends Content> createRandomLetter() throws AlreadyUrgentException{
 		Inhabitant sender = getRandomInhabitant();
 		Inhabitant receiver = getRandomInhabitant();
@@ -55,7 +57,7 @@ public class Courrier<C extends Content> {
 		Letter<?> letter;
 		if(r==0) 
 			letter = new SimpleLetter(sender, receiver, "");
-		else letter = new PromissoryNote(sender, receiver, 100);
+		else letter = new PromissoryNote(sender, receiver, (int) (Math.random() *100));
 		System.out.println(letter.getReceiver().getName() + " " +letter.getSender().getName());
 		
 		r = (int) (Math.random()*2);
@@ -65,6 +67,7 @@ public class Courrier<C extends Content> {
 		return letter;
 	}
 	
+	//Returns a random ihnabitant
 	public static Inhabitant getRandomInhabitant(){
 		int r = (int) (Math.random()*city.getSize());
 		return city.getInhabitant(r);		
