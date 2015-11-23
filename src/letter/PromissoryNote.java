@@ -9,6 +9,7 @@ public class PromissoryNote extends Letter<NoteContent> {
 		sender.getBankAccount().removeCostInAccount(amount);
 	}
 
+	//Takes off the amount on the sender's account to add it on the receiver's one. Sends a thank-you letter to the sender
 	@Override
 	public void action() {
 		super.action();
@@ -25,11 +26,13 @@ public class PromissoryNote extends Letter<NoteContent> {
 			
 	}
 	
+	//Returns the letter's cost
 	@Override
 	public double getCost() {
 		return  1 + 0.01 * content.getAmount();
 	}
 	
+	//Returns the letter's descritpion and amount
 	public String toString() {
 		return "promissory note (" + content.getAmount() + ")";
 	}

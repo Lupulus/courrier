@@ -8,11 +8,15 @@ public class RegisteredLetter extends LetterDecorator {
 		super(letter);
 	}
 
+	//Returns the letter's cost
 	@Override
 	public double getCost() {
 		return super.letter.getCost() + COST;
 	}
 	
+	
+	
+	//Sends an acknowledgment of receipt to the letter's sender
 	@Override
 	public void action() {
 		super.action();
@@ -21,6 +25,7 @@ public class RegisteredLetter extends LetterDecorator {
 		letter.getSender().getCity().sendLetter(letter);
 	}
 	
+	//Returns the letter's description
 	public String toString() {
 		return this.letter.toString() + " registered letter";
 	}

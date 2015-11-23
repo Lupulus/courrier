@@ -11,16 +11,19 @@ public class SimpleLetter extends Letter<SimpleContent> {
 		super.content = new SimpleContent(text); 
 	}
 
+	//Set the letter's value opened as true
 	@Override
 	public void action() {
 		super.action();
 	}
 
+	//Returns the letter's cost
 	@Override
 	public double getCost() {
 		return COST;
 	}
 	
+	//Returns the letter description
 	public String toString() {
 		return "simple letter";
 	}
