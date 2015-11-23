@@ -17,5 +17,20 @@ public class SimpleLetterTest extends LetterTest {
 	public void test() {
 		fail("Not yet implemented");
 	}
+	
+	@Override
+	public void testAction(){
+		super.testAction();	
+	}
+	
+	@Override
+	public void testIsUrgent(){
+		super.testIsUrgent();
+	}
+	
+	@Override
+	public void testCost(){
+		assertEquals(1, letterTest.getCost(), 1 - letterTest.getCost());
+	}
 
 }
