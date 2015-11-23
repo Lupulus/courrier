@@ -27,6 +27,6 @@ public class UrgentLetter extends LetterDecorator {
 	}
 
 	public String toString() {
-		return this.letter.toString() + " urgent letter";
+		return this.letter.toString() + " urgent";
 	}
 }

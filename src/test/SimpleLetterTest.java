@@ -14,13 +14,15 @@ public class SimpleLetterTest extends LetterTest {
 	SimpleLetter letterTest = new SimpleLetter(sender, receiver, "test");
 	
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testToString() {
+		assertEquals("simple letter", letterTest.toString());
 	}
 	
 	@Override
 	public void testAction(){
-		super.testAction();	
+		assertFalse(letterTest.getOpened());
+		letterTest.action();
+		assertTrue(letterTest.getOpened());	
 	}
 	
 	@Override

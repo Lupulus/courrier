@@ -22,6 +22,6 @@ public class RegisteredLetter extends LetterDecorator {
 	}
 	
 	public String toString() {
-		return this.letter.toString() + " registered letter";
+		return this.letter.toString() + " registered";
 	}
 }

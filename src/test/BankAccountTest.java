@@ -11,14 +11,14 @@ public class BankAccountTest {
 	
 	@Test
 	public void testSetAcount() {
-		account.setAccount(50.0);
-		assertEquals(50.0, account.getAccount(), 50.0 - account.getAccount());
+		account.setAccount(200.0);
+		assertEquals(200.0, account.getAccount(), 50.0 - account.getAccount());
 	}
 	
 	@Test
 	public void testAddCostInAccount() {
 		account.addCostInAccount(50.0);
-		assertEquals(100.0, account.getAccount(), 100.0 - account.getAccount());
+		assertEquals(150.0, account.getAccount(), 100.0 - account.getAccount());
 	}
 	
 	@Test
