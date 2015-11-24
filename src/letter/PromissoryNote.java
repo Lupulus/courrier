@@ -16,6 +16,7 @@ public class PromissoryNote extends Letter<NoteContent> {
 		try{
 			if(content.getAmount() <= this.getSender().getBankAccount().getAccount()){
 				super.getSender().getBankAccount().removeCostInAccount(content.getAmount());
+				System.out.println(content.getAmount() + " is debited from " + super.getSender().getName() + "'s account");
 				super.getReceiver().getBankAccount().addCostInAccount(content.getAmount());
 				SimpleLetter letter = new SimpleLetter(super.getReceiver(), super.getSender(), "Thank you for the money");
 				letter.getSender().getCity().sendLetter(letter);

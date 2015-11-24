@@ -7,6 +7,7 @@ public abstract class LetterDecorator extends Letter<Content> {
 	//Instantiates a LetterDecorator with the letter in parameter
 	public LetterDecorator(Letter<?> letter) {
 		super(letter.getSender(), letter.getReceiver(), letter.getCost());
+		super.content = letter.getContent();
 		this.letter = letter;
 	}
 

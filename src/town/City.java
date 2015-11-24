@@ -9,12 +9,12 @@ import letter.Letter;
 public class City {
 	private String name;
 	private List<Inhabitant> inhabitants;
-	private List<Letter<? extends Content>> postBox;
+	private List<Letter<?>> postBox;
 	
 	public City(String name){
 		this.name = name;
 		this.inhabitants = new ArrayList<Inhabitant>();
-		this.postBox = new ArrayList<Letter<? extends Content>>();
+		this.postBox = new ArrayList<Letter<?>>();
 	}
 	
 	//Add an inhabitant to the city
@@ -27,7 +27,7 @@ public class City {
 	
 	//Returns true if the sending of the letter was successed, else false
 	public boolean sendLetter(Letter<? extends Content> letter){
-		System.out.println("-> " + letter.getSender().getName() + " mails a " + letter.toString() + " to " + letter.getReceiver().getName());
+		System.out.println("-> " + letter.getSender().getName() + " mails a " + letter.toString() + " to " + letter.getReceiver().getName() + " whose content is a " + letter.getContent().getDescription());
 		return postBox.add(letter);
 	}
 	
@@ -63,9 +63,10 @@ public class City {
 	
 	//Sends the letters in the postbox
 	public void distributeLetter(){
-		for(Letter<? extends Content> letter : postBox){
+		List<Letter<? extends Content>> list = postBox;
+		postBox = new ArrayList<>();
+		for(Letter<? extends Content> letter : list){
 			letter.getReceiver().addReceivedLetter(letter);
 		}
-		postBox = new ArrayList<>();
 	}
 }

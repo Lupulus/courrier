@@ -35,6 +35,7 @@ public class Inhabitant {
 	
 	//Adds a letter to the list of received letters
 	public void addReceivedLetter(Letter<? extends Content> letter){
+		letter.action();
 		receivedLetter.add(letter);
 	}
 

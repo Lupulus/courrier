@@ -58,7 +58,6 @@ public class Courrier<C extends Content> {
 		if(r==0) 
 			letter = new SimpleLetter(sender, receiver, "");
 		else letter = new PromissoryNote(sender, receiver, (int) (Math.random() *100));
-		System.out.println(letter.getReceiver().getName() + " " +letter.getSender().getName());
 		
 		r = (int) (Math.random()*2);
 		if(r==0)
